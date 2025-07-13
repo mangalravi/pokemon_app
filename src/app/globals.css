@@ -1,4 +1,4 @@
-@tailwind base;
+/* @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
@@ -24,7 +24,6 @@
   }
 }
 
-/* Custom scrollbar */
 ::-webkit-scrollbar {
   width: 8px;
 }
@@ -41,7 +40,6 @@
   @apply bg-gray-400;
 }
 
-/* Loading animation */
 @keyframes pulse {
   0%,
   100% {
@@ -56,21 +54,18 @@
   animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
 }
 
-/* Smooth transitions */
 * {
   @apply transition-colors duration-200;
 }
 
-/* Focus styles */
 button:focus,
 input:focus,
 select:focus {
   @apply outline-none ring-2 ring-blue-500 ring-offset-2;
 }
 
-/* Mobile optimizations */
 @media (max-width: 640px) {
   .container {
     @apply px-4;
   }
-}
+} */
