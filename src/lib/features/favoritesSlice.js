@@ -9,15 +9,12 @@ const favoritesSlice = createSlice({
   name: "favorites",
   initialState,
   reducers: {
-    // Load favorites (e.g. from localStorage)
     loadFavorites: (state, action) => {
       const payload = action.payload
-      // Ensure all IDs are numbers and remove duplicates
       state.favorites = Array.from(new Set(payload.map((id) => Number(id))))
       state.isLoaded = true
     },
 
-    // Toggle favorite: add if not present, remove if exists
     toggleFavorite: (state, action) => {
       const pokemonId = Number(action.payload)
       const index = state.favorites.indexOf(pokemonId)
@@ -29,7 +26,6 @@ const favoritesSlice = createSlice({
       }
     },
 
-    // Add favorite explicitly
     addFavorite: (state, action) => {
       const pokemonId = Number(action.payload)
       if (!state.favorites.includes(pokemonId)) {
@@ -37,13 +33,11 @@ const favoritesSlice = createSlice({
       }
     },
 
-    // Remove specific favorite
     removeFavorite: (state, action) => {
       const pokemonId = Number(action.payload)
       state.favorites = state.favorites.filter((id) => id !== pokemonId)
     },
 
-    // Clear all favorites (e.g. on logout)
     clearFavorites: (state) => {
       state.favorites = []
     },

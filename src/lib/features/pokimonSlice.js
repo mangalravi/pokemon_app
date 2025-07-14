@@ -1,18 +1,15 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit"
 import { getPokemonList, getPokemonTypes } from "../../lib/pokimon-api"
 
-// Async thunk to fetch Pokémon list
 export const fetchPokemonList = createAsyncThunk("pokemon/fetchPokemonList", async (limit = 151) => {
   const response = await getPokemonList(limit)
 
-  // Ensure each Pokémon has an `id` — fallback if missing
   return response.map((pokemon, index) => ({
     ...pokemon,
-    id: pokemon.id ?? index + 1, // Use API id if available, fallback to index
+    id: pokemon.id ?? index + 1,
   }))
 })
 
-// Async thunk to fetch types
 export const fetchPokemonTypes = createAsyncThunk("pokemon/fetchPokemonTypes", async () => {
   const response = await getPokemonTypes()
   return response

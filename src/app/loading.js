@@ -5,7 +5,7 @@ export default function Loading() {
       <div className="loader ease-linear rounded-full border-8 border-t-8 border-gray-200 h-16 w-16"></div>
       <style jsx>{`
         .loader {
-          border-top-color: #6366f1; /* Indigo-500 */
+          border-top-color: #6366f1; 
           animation: spin 1s linear infinite;
         }
         @keyframes spin {

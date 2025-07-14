@@ -6,10 +6,9 @@ import Link from "next/link"
 import { Heart } from "lucide-react"
 
 export default async function HomePage() {
-  // Fetch initial data on server
   const [types, initialPokemon] = await Promise.all([
     getPokemonTypes(),
-    getPokemonList(151), // Load first 151 Pokemon
+    getPokemonList(51),
   ])
 
   return (

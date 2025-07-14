@@ -12,12 +12,10 @@ export default function PokemonList({ initialPokemon }) {
   const filteredPokemon = useMemo(() => {
     let filtered = initialPokemon
 
-    // Filter by search term
     if (debouncedSearchTerm) {
       filtered = filtered.filter((pokemon) => pokemon.name.toLowerCase().includes(debouncedSearchTerm.toLowerCase()))
     }
 
-    // Filter by type
     if (selectedType) {
       filtered = filtered.filter((pokemon) => pokemon.types.some((type) => type.type.name === selectedType))
     }

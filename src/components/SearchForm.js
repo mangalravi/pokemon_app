@@ -8,7 +8,6 @@ export default function SearchForm({ types }) {
   return (
     <div className="bg-white rounded-xl shadow-lg p-6 mb-8">
       <div className="grid md:grid-cols-2 gap-4">
-        {/* Search Input */}
         <div className="relative">
           <label htmlFor="search" className="block text-sm font-medium text-gray-700 mb-2">
             Search Pokemon
@@ -26,7 +25,6 @@ export default function SearchForm({ types }) {
           </div>
         </div>
 
-        {/* Type Filter */}
         <div>
           <label htmlFor="type" className="block text-sm font-medium text-gray-700 mb-2">
             Filter by Type

@@ -1,4 +1,3 @@
-// Type definitions for Pokemon data structures
 
 export const PokemonType = {
   id: "number",

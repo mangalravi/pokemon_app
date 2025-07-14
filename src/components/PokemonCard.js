@@ -19,7 +19,6 @@ export default function PokemonCard({ pokemon }) {
   return (
     <Link href={`/pokemon/${pokemon.name.toLowerCase()}`}>
       <div className="bg-white rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 overflow-hidden group">
-        {/* Favorite Button */}
         <div className="relative">
           <button
             onClick={handleFavoriteClick}
@@ -33,7 +32,6 @@ export default function PokemonCard({ pokemon }) {
             />
           </button>
 
-          {/* Pokemon Image */}
           <div className="relative h-48 bg-gradient-to-br from-blue-50 to-indigo-100 flex items-center justify-center">
             <Image
               src={pokemon.sprites.other["official-artwork"]?.front_default || pokemon.sprites.front_default}
@@ -45,7 +43,6 @@ export default function PokemonCard({ pokemon }) {
           </div>
         </div>
 
-        {/* Pokemon Info */}
         <div className="p-4">
           <div className="flex justify-between items-start mb-2">
             <h3 className="text-lg font-bold text-gray-800 group-hover:text-blue-600 transition-colors">
@@ -54,7 +51,6 @@ export default function PokemonCard({ pokemon }) {
             <span className="text-sm text-gray-500 font-medium">#{pokemon.id.toString().padStart(3, "0")}</span>
           </div>
 
-          {/* Types */}
           <div className="flex flex-wrap gap-1">
             {pokemon.types.map((type) => (
               <span

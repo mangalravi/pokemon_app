@@ -7,7 +7,6 @@ import PokemonCard from "./PokemonCard";
 import { useFavorites } from "@/hooks/useFavorites";
 import { useAppSelector, useAppDispatch } from "../lib/Hooks";
 
-// Correct import from pokemonSlice where fetchPokemonList is defined
 import { fetchPokemonList } from "../lib/features/pokimonSlice";
 
 export default function FavoritesPage() {
@@ -15,17 +14,14 @@ export default function FavoritesPage() {
   const { favorites } = useFavorites();
   const { pokemonList, loading } = useAppSelector((state) => state.pokemon);
 
-  // Fetch Pokémon list on mount if empty
   useEffect(() => {
     if (!pokemonList || pokemonList.length === 0) {
       dispatch(fetchPokemonList());
     }
   }, [dispatch, pokemonList]);
 
-  // Normalize favorites to numbers (important if stored as strings)
   const normalizedFavorites = useMemo(() => favorites.map(Number), [favorites]);
 
-  // Filter pokemonList to only those in favorites
   const favoritePokemon = useMemo(() => {
     if (!pokemonList) return [];
     return pokemonList.filter((pokemon) => normalizedFavorites.includes(Number(pokemon.id)));
@@ -56,7 +52,6 @@ export default function FavoritesPage() {
         <div className="text-center py-12 text-gray-500">Loading your Pokémon...</div>
       ) : favoritePokemon.length === 0 ? (
         <div className="text-center py-12">
-          <div className="text-6xl mb-4">💔</div>
           <h3 className="text-xl font-semibold text-gray-700 mb-2">No Favorite Pokémon Yet</h3>
           <p className="text-gray-500 mb-6">
             Start exploring and add some Pokémon to your favorites!
@@ -75,7 +70,7 @@ export default function FavoritesPage() {
               key={pokemon.id}
               pokemon={{
                 ...pokemon,
-                type: pokemon.type ?? "unknown", // fallback type
+                type: pokemon.type ?? "unknown",
               }}
             />
           ))}
